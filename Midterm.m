@@ -174,3 +174,18 @@ if cancel_all == 0;
             order = 1;
     end
 end
+
+
+Menu = {'     Small Pizza     $' '     Topping: Chicken     $' '     Topping: Pepperoni     $' '     Topping: Sausage     $' '     Topping: Extra Cheese     $' '     Topping: Mushrooms     $' '     Toppings: Onions     $' '     Topping: Bell Pepper     $' '     Topping: Olives     $' '     Medium Pizza     $' '     Topping: Chicken     $' '     Topping: Pepperoni     $' '     Topping: Sausage     $' '    Topping: Extra Cheese    $' '     Topping: Mushrooms     $' '     Toppings: Onions     $' '     Topping: Bell Pepper     $' '     Topping: Olives     $' '     Large Pizza     $' '     Topping: Chicken     $' '     Topping: Pepperoni     $' '     Topping: Sausage     $' '     Topping: Extra Cheese     $' '     Topping: Mushrooms     $' '     Toppings: Onions     $' '     Topping: Bell Pepper     $' '     Topping: Olives     $' '     6 in. Sub     $' '     $12 in. Sub     $' '     Turkey     $' '     Ham     $' '     Roast     $' '     Beef     $' '     Cheese     $' '     Lettuce     $' '     Tomato     $' '     Bell Peppers     $' '     Onion     $' '     Olive     $' '     Calzone: Meat Lovers     $' '     Calzone: Vegetarian     $' '     Calzone: Cheese     $' '     Breadsticks     $' '     Olive Oil     $' '     Cheese Garlic     $' '     Marinera     $' '     Mild Wings     $' '     Hot Wings     $' '     Ranch Wings     $' '     Chips: Regular     $' '     Chips: BBQ     $' '     Chips: Salt and Vinegar     $' '     Cookie: Chocolate Chip     $' '     Cookie: Sugar     $' '     Cookie: M&M     $' '     Water     $' '     Small Pepsi     $' '     Small Diet pepsi     $' '     Small Mountain Dew     $' '     Small Sierra Mist    $' '     Small Lemonade     $' '     Small Root Beer     $' '     Small Iced Tea     $' '     Medium Pepsi     $' '     Medium Diet Pepsi     $' '     Medium Mountain Dew    $' '     Medium Sierra Mist     $' '     Medium Lemonade     $' '     Medium Root Beer     $' '     Medium Iced Tea     $' '     Large Pepsi     $' '     Large Diet Pepsi     $' '     Large Mountain Dew     $' '     Large Sierra Mist     $' '     Large Lemonade     $' '      Large Root Beer     $' '      Large Iced Tea     $'};   %List of menu items
+Price = [10.99 2.99 2.99 2.99 1.99 1.99 0.99 0.99 0.99 13.99 2.99 2.99 2.99 1.99 1.99 0.99 0.99 0.99 15.99 2.99 2.99 2.99 1.99 1.99 0.99 0.99 0.99 1.99 3.49 0.99 0.99 1.49 0.49 0.49 0.49 0.49 0.49 0.49 7.99 7.49 6.99 0.99 0.49 0.49 0.49 0.99 0.99 0.99 1.49 1.49 1.49 0.99 0.99 0.99 0.00 1.49 1.49 1.49 1.49 1.49 1.49 1.49 1.79 1.79 1.79 1.79 1.79 1.79 1.79 1.99 1.99 1.99 1.99 1.99 1.99 1.99];   %List of prices
+Order = [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0];   %List of selected items
+Rec = cell(20);
+for F = 1:76;     %Check if something has been ordered for each menu item
+if Order(F) ~= 0;
+Rec(F) = [strcat(num2str(Order(F)),{Menu{F}},num2str(Price(F)*Order(F)))];   %combine strings containing the number of an item ordered, the item name, and the total price
+else
+end
+end
+Rec1 = Rec(~cellfun('isempty',Rec));     %Delete all empty cells
+msgbox(Rec1);     %Diplay the cell matrix sans empty cells in Rec
+
